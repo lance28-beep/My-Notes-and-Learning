@@ -59,3 +59,9 @@ const you = new Person()
 console.log(me.talk()) //Talking
 console.log(you.talk()) //Talking
 ```
+
+\_\_proto\_\_ vs prototype
+
+
+
+[links](https://www.youtube.com/watch?v=jnME98ckDbQ&list=PL1PqvM2UQiMoGNTaxFMSK2cih633lpFKP&index=1) time:4:21
