@@ -179,26 +179,262 @@
 // const jimie2 = Player('jimie2', 10);
 // jimie.attack(jimie2);
 
-const Player = (name) => {
-  const sayName = () => console.log(`my name is ${name}`)
-  return { sayName }
-}
+// const Player = (name) => {
+//   const sayName = () => console.log(`my name is ${name}`)
+//   return { sayName }
+// }
 
-const Nerd = (name) => {
-  const { sayName } = Player(name)
-  const doSomethingNerdy = () => console.log(`${name} does something nerdy`)
-  return { sayName, doSomethingNerdy }
-}
+// const Nerd = (name) => {
+//   const { sayName } = Player(name)
+//   const doSomethingNerdy = () => console.log(`${name} does something nerdy`)
+//   return { sayName, doSomethingNerdy }
+// }
 
-const lance = Nerd('lance')
-lance.sayName()
+// const lance = Nerd('lance')
+// lance.sayName()
+
+// const Nerd2 = (name) => {
+//  const prototype = Player(name);
+//  const doSomethingNerdy = () => console.log(`${name} does something nerdy`)
+//  return Object.assign({}, prototype, { doSomethingNerdy })
+// }
+
+// const jess = Nerd2('jess')
+// jess.sayName()
+
+// const proto = {
+//   sayName: function () {
+//     console.log(`my name is ${this.name}`)
+//   }
+// }
+
+// const george = Object.create(proto)
+// george.name = 'george'
+// george.sayName()
+
+// mixin style
+// const proto = {
+//   sayName: function () {
+//     console.log(`my name is ${this.name}`)
+//   }
+// }
+
+// const george = Object.assign({},proto, { name: 'george' })
+// george.sayName()
+
+// const foo = Object.assign({
+//   attrn: {},
+//   sent: function (name, value) {
+//     this.attrn[name] = value
+//     this.trigger('change', {
+//       name,
+//       value,
+//     })
+//   },
+//   get:function(name,value){
+//     return this.attrn[name]
+//   }
+// }, Backbone.Events)
+
+// class inheritance
+// class Greeter {
+//   constructor(name) {
+//     this.name = name || 'world'
+//   }
+//   sayHello() {
+//     return `Hello ${this.name}`
+//   }
+// }
+
+// const george = new Greeter('george')
+// const msg = george.sayHello()
+
+// console.log(msg)
+
+//Constructor functions
+// function Greeter(name) {
+//   this.name = name || 'world'
+// }
+
+// Greeter.prototype.sayHello = function () {
+//   return `Hello ${this.name}`
+// }
+
+// const george = new Greeter('george')
+// let georgeMsg = george.sayHello()
+// console.log(georgeMsg)
+
+// Factor Function
+// const proto = {
+//   hello: function () {
+//     console.log(`Hello ${this.name}`)
+//   },
+// }
+
+// const george = Object.assign(proto, { name: 'george' })
+
+// george.hello()
+
+// javascript closure
+// const state = 'rabbit'
+
+// function callMe(a) {
+//   return `${a} ${state}`
+// }
+// console.log(callMe("lance"))
+
+// function pureFun(a,b){
+//   return a + b
+// }
+
+// for (var i = 0; i < 3; i++) {
+//   const log = () => {
+//     console.log(i)
+//   }
+
+//   setTimeout(log, 1000)
+// }
+
+// function outer() {
+//   function inner() {}
+// }
+
+// const barker = (state) => ({
+//   bark: () => console.log(`Woof, A am ${state} bark`),
+// })
+
+// const driver = (state) => ({
+//   drive: () => (state.position = state.position + state.speed),
+// })
+
+// barker('karo').bark()
+
+// console.log(driver('karo').drive())
+
+// const murderRobotDog = (name) => {
+//   let state = {
+//     name,
+//     speed: 100,
+//     position: 0,
+//   }
+//   return Object.assign({}, barker(state), driver(state), killer(state))
+// }
+
+// murderRobotDog('Sniffers').bark()
+
+// const course = {
+//   name: 'Web Programming',
+//   score: 85,
+// }
+
+// const grade = {
+//   score: 92,
+// }
+
+// const finalResult = Object.assign({ teacher: 'lance' }, course, grade)
+// const finalResult2 = { ...course, ...grade, teacher: 'lance' }
+
+// console.log(finalResult)
+// console.log(finalResult2)
+
+// const calculator = (() => {
+//   const add = (a, b) => a + b
+//   const subtract = (a, b) => a - b
+//   const multiply = (a, b) => a * b
+//   const div = (a, b) => a / b
+//   return { add, subtract, multiply, div }
+// })()
+
+// console.log(calculator.add(1, 2))
+// console.log(calculator.multiply(1, 2))
+// console.log(calculator.div(1, 2))
+// console.log(calculator.subtract(1, 2))
+
+// (function() {
+//   'use strict'
+//   //Your Code here
+//   // All function and variables are scoped to this function.
+// })()
+
+// let myModule = (function () {
+//   'use strict'
+
+//   return {
+//     publicMethod:function(){
+//       console.log('publicMethod')
+//     }
+//   }
+// })()
+
+// // myModule.publicMethod()
+
+// var myModule = (function () {
+//   'use strict'
+
+//   const _privateProperty = 'Hello World'
+//   function _privateMethod() {
+//     console.log(_privateProperty)
+//   }
+
+//   return {
+//     publicMethod: function () {
+//       _privateMethod()
+//     }
+//   }
+// })();
+
+// myModule.publicMethod();//outputs 'hello world'
+// console.log(myModule._privateProperty)//is undefined protected by the module closure.
+// myModule._privateMethod()//is undefined protected by the module closure.
+
+// var myModule = (function () {
+//   'use strict'
+
+//   var _privateProperty = 'Hello World'
+//   var publicProperty = 'I am a public property'
+
+//   function _privateMethod() {
+//     console.log(_privateProperty)
+//   }
+
+//   function publicMethod() {
+//     _privateMethod()
+//   }
+
+//   return { publicMethod, publicProperty }
+// })()
+
+// myModule.publicMethod()
+// console.log(myModule.publicProperty)
+// console.log(myModule._privateProperty)
+// myModule._privateMethod()
+
+// const someModule = (function(){})()
+
+// const Formatter = (function () {
+//   console.log('start')
+//   const log = (message) =>
+//     console.log(`[${new Date().toISOString()}] ${message}`)
+//   return { log }
+// })()
+
+// Formatter.log('Hello World')
+
+// const Formatter = (function () {
+//   console.log('start')
+//   const log = (message) =>
+//     console.log(`[${new Date().toISOString()}] ${message}`)
+// })()
 
 
-const Nerd2 = (name) => {
- const prototype = Player(name);
- const doSomethingNerdy = () => console.log(`${name} does something nerdy`)
- return Object.assign({}, prototype, { doSomethingNerdy })
-}
+const Formatter = (function(){
+  const log = (message) => console.log(`[${new Date().toISOString()}] ${message}`)
 
-const jess = Nerd2('jess')
-jess.sayName()
+  const makeUpperCase = (text) => {
+    log("Making uppercase");
+    return text.toUpperCase();
+  }
+  // return {makeUpperCase}
+})()
+
+console.log(Formatter.makeUpperCase("hello world"))

@@ -62,6 +62,15 @@ console.log(you.talk()) //Talking
 
 \_\_proto\_\_ vs prototype
 
-
-
 [links](https://www.youtube.com/watch?v=jnME98ckDbQ&list=PL1PqvM2UQiMoGNTaxFMSK2cih633lpFKP&index=1) time:4:21
+
+<!-- JavaScript Closures -->
+
+**Closure** - A closure is the combination of a function bundled together with references to its surrounding.
+In other words, a closure gives you access to an outer function's scope from an inner function.
+```
+function outer() {
+  function inner() {}
+}
+```
+
