@@ -531,3 +531,6 @@ const Formatter = (function(){
 
 console.log(Formatter.makeUpperCase("hello world"))
 ```
+
+- a useful side-effect of encapsulating the inner workings of our programs into objects is **namespacing**.
+- **Namespacing** - is a technique that is used to avoid naming collisions in our programs.
