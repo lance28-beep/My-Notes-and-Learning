@@ -218,3 +218,13 @@ Consider the following examples:
 - Run an application from the Web IDE
 - Debug the Node.js application from the Web IDE
 
+## WEB IDE: Edit Code Features
+* Web IDE
+- - Eclipse Orion
+- - No installations, just start coding now
+
+> The Web IDE features in Continuous Delivery provide the following capabilities:
+> IBM Cloud uses Eclipse Orion Web IDE.
+> No installations are required.
+> You can use a browser to code.
+> it's a full-featured IDE
