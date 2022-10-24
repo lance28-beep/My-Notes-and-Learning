@@ -214,3 +214,44 @@
 // counter()
 // counter()
 
+//factory functions
+
+// Player = (name, level) => {
+//   let health = level * 2
+//   const getLevel = () => level
+//   const getName = () => name
+//   const die = () => {
+//     //uh oh
+//   }
+//   const damage = (x) => {
+//     health -= x
+//     if (health <= 0) {
+//       die()
+//     }
+//   }
+
+//   const attack = (enemy) => {
+//     if (level < enemy.getLevel()) {
+//       damage(1)
+//       console.log(`${enemy.getName()} has damaged ${name}`)
+//     }
+//     if (level >= enemy.getLevel()) {
+//       enemy.damage(1)
+//       console.log(`${name} has damaged ${enemy.getName()}`)
+//     }
+//   }
+
+//   return { attack, damage, getLevel, getName }
+// }
+
+// const jimie = Player('jim', 10)
+// const badGuy = Player('jeff', 5)
+
+// jimie.attack(badGuy)
+// badGuy.attack(jimie)
+// badGuy.damage(10)
+// console.log(badGuy.getLevel())
+// console.log(jimie.getLevel())
+// console.log(jimie.getName())
+// jimie.health -= 1000
+

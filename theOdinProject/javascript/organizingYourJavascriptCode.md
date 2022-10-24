@@ -41,3 +41,6 @@ Context - this
 
 
 //Private Variables and Functions
+
+Factories are simply plain old JavaScript functions that return objects for us to use in our code.
+Using factories is a powerful way to organize and contain the code you’re writing
