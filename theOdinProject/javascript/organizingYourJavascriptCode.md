@@ -25,3 +25,6 @@ simplest ways you can begin to organize your code is by simply grouping things i
 Object Constructors
 
 // prototype is just a shared object.
+
+// Factory Functions And The Module Pattern
+Factory functions simply set up and return the new object when you call the function. 

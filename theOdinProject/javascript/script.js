@@ -123,22 +123,50 @@
 // carl.sayName()
 // carl.SayGrade()
 
-function Particle() {
-  this.x = 100
-  this.y = 99
-}
+// function Particle() {
+//   this.x = 100
+//   this.y = 99
+// }
 
-Particle.prototype.show = function () {
-  point(this.x, this.y)
-}
+// Particle.prototype.show = function () {
+//   point(this.x, this.y)
+// }
 
-var p = new Particle()
-var v
+// var p = new Particle()
+// var v
 
-function setup() {
-  createCanvas(600, 300)
-  p = new Particle()
-  v = createVector(3, 4)
-}
+// function setup() {
+//   createCanvas(600, 300)
+//   p = new Particle()
+//   v = createVector(3, 4)
+// }
 
+// Factory Functions
+// const personFactory = (name, age) => {
+//   const sayHello = () => 'Hello!'
+//   return { name, age, sayHello }
+// }
 
+// const jeff = personFactory('jeff', 27)
+
+// console.log(jeff.name)
+// console.log(jeff.sayHello())
+
+// const Person = function (name, age) {
+//   this.sayHello = () => 'hello!'
+//   this.name = name
+//   this.age = age
+// }
+
+// const janet = new Person('janet', 27)
+
+// console.log(janet.name)
+// console.log(janet.sayHello())
+
+const name = 'lance'
+const color = 'red'
+const number = 34
+const food = 'rice'
+
+console.log(name, color, number, food)
+console.log({ name, color, number, food })
