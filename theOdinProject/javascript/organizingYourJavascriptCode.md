@@ -35,12 +35,14 @@ Factory functions - simply set up and return the new object when you call the fu
 Scope - is the term that refers to where things like variables and functions can be used in your code.
 
 ---
+
 Scope - variable access
 The concept of closure is the idea that functions retain their scope even if they are passed around and called outside of that scope
 Context - this
-
 
 //Private Variables and Functions
 
 Factories are simply plain old JavaScript functions that return objects for us to use in our code.
 Using factories is a powerful way to organize and contain the code you’re writing
+
+Inheritance with factories
