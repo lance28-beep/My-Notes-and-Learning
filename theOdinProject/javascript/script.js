@@ -163,10 +163,22 @@
 // console.log(janet.name)
 // console.log(janet.sayHello())
 
-const name = 'lance'
-const color = 'red'
-const number = 34
-const food = 'rice'
+// const name = 'lance'
+// const color = 'red'
+// const number = 34
+// const food = 'rice'
 
-console.log(name, color, number, food)
-console.log({ name, color, number, food })
+// console.log(name, color, number, food)
+// console.log({ name, color, number, food })
+
+// Scope and Closure
+
+let a = 17
+
+const func = (x) => {
+  let a = x
+}
+
+func(99)
+
+console.log(a)

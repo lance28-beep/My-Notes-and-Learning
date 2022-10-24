@@ -1,4 +1,5 @@
 Object literal
+
 ```
 const myObject = {
   property: 'Value!',
@@ -10,6 +11,7 @@ const myObject = {
 ```
 
 2 ways to get information out of an object
+
 ```
 // dot notation
 myObject.property // 'Value!'
@@ -27,4 +29,15 @@ Object Constructors
 // prototype is just a shared object.
 
 // Factory Functions And The Module Pattern
-Factory functions simply set up and return the new object when you call the function. 
+Factory functions - simply set up and return the new object when you call the function.
+
+// Scope and Closure
+Scope - is the term that refers to where things like variables and functions can be used in your code.
+
+---
+
+Scope - variable access
+Context - this
+
+
+//Private Variables and Functions
