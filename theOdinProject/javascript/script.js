@@ -63,18 +63,36 @@
 
 // Exercise
 
-function Book(title, author, pages, read) {
-  this.title = title
-  this.author = author
-  this.pages = pages
-  this.read = false
-  this.info = function () {
-    return `${title} by ${author} ${pages} pages, ${
-      read ? 'read' : 'not read yet'
-    }`
-  }
+// function Book(title, author, pages, read) {
+//   this.title = title
+//   this.author = author
+//   this.pages = pages
+//   this.read = false
+//   this.info = function () {
+//     return `${title} by ${author} ${pages} pages, ${
+//       read ? 'read' : 'not read yet'
+//     }`
+//   }
+// }
+
+// const theHobbit = new Book('The Hobbit', 'J.R.R', 299, false)
+
+// console.log(theHobbit.info())
+
+// The Prototype
+function Student(name, grade){
+  this.name = name
+  this.grade = grade
 }
 
-const theHobbit = new Book('The Hobbit', 'J.R.R', 299, false)
+Student.prototype.sayName = function(){
+  console.log(this.name)
+}
 
-console.log(theHobbit.info())
+Student.prototype.goToProm = function(){
+  console.log("Eh.. go to prom?")
+}
+
+const lance = new Student("lance","college")
+
+console.log(lance.goToProm())
