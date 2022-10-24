@@ -173,12 +173,44 @@
 
 // Scope and Closure
 
-let a = 17
+// let a = 17
 
-const func = (x) => {
-  let a = x
-}
+// const func = (x) => {
+//   let a = x
+// }
 
-func(99)
+// func(99)
 
-console.log(a)
+// console.log(a)
+
+//Private Variables and Functions
+
+// const FactoryFunction = (string) => {
+//   const capitalizeString = () => string.toUpperCase()
+//   const printString = () => console.log(`-------${capitalizeString()}-------`)
+//   return { printString }
+// }
+
+// const taco = FactoryFunction('taco')
+
+// taco.printString()
+
+// const counterCreator = () => {
+//   let count = 0
+//   return () => {
+//     console.log(count)
+//     count++
+//   }
+// }
+
+// const counter = counterCreator();
+
+// counter()
+// counter()
+// counter()
+// counter()
+// counter()
+// counter()
+// counter()
+// counter()
+
