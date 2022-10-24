@@ -18,3 +18,5 @@ myObject.property // 'Value!'
 myObject["obnoxious property"] // [Function]
 
 ```
+
+Object as a Design pattern.
