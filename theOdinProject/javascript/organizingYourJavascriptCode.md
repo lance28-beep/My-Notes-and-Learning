@@ -23,3 +23,5 @@ Object as a Design pattern.
 simplest ways you can begin to organize your code is by simply grouping things into objects
 
 Object Constructors
+
+// prototype is just a shared object.

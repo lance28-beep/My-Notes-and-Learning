@@ -79,20 +79,66 @@
 
 // console.log(theHobbit.info())
 
-// The Prototype
-function Student(name, grade){
-  this.name = name
-  this.grade = grade
+// // The Prototype
+// function Student(name, grade){
+//   this.name = name
+//   this.grade = grade
+// }
+
+// Student.prototype.sayName = function(){
+//   console.log(this.name)
+// }
+
+// Student.prototype.goToProm = function(){
+//   console.log("Eh.. go to prom?")
+// }
+
+// const lance = new Student("lance","college")
+
+// console.log(lance.goToProm())
+
+//Recemmended Method for prototypal inheritance
+// Object.create - simply returns a new object with the specified prototype
+// and any additional properties you want to add
+
+// function Student() {}
+
+// Student.prototype.sayName = function () {
+//   console.log(this.name)
+// }
+
+// Student.prototype.SayGrade = function () {
+//   console.log(this.grade)
+// }
+
+// function EightGrader(name) {
+//   this.name = name
+//   this.grade = 8
+// }
+
+// EightGrader.prototype = Object.create(Student.prototype)
+
+// const carl = new EightGrader('carl')
+
+// carl.sayName()
+// carl.SayGrade()
+
+function Particle() {
+  this.x = 100
+  this.y = 99
 }
 
-Student.prototype.sayName = function(){
-  console.log(this.name)
+Particle.prototype.show = function () {
+  point(this.x, this.y)
 }
 
-Student.prototype.goToProm = function(){
-  console.log("Eh.. go to prom?")
+var p = new Particle()
+var v
+
+function setup() {
+  createCanvas(600, 300)
+  p = new Particle()
+  v = createVector(3, 4)
 }
 
-const lance = new Student("lance","college")
 
-console.log(lance.goToProm())
