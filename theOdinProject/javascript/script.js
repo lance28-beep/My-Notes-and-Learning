@@ -257,19 +257,42 @@
 
 // inheritance with factories
 
-const Person = (name) => {
-  const sayName = () => console.log(`my name is ${name}`)
-  return { sayName }
-}
+// const Person = (name) => {
+//   const sayName = () => console.log(`my name is ${name}`)
+//   return { sayName }
+// }
 
-const Nerd = (name) => {
-  //simply create a person and pull out the sayName function with destructuring assignment systax!
-  const { sayName } = Person(name)
-  const doSomethingNerdy = () => console.log('nerd stuff')
-  return { sayName, doSomethingNerdy }
-}
+// const Nerd = (name) => {
+//   //simply create a person and pull out the sayName function with destructuring assignment systax!
+//   const { sayName } = Person(name)
+//   const doSomethingNerdy = () => console.log('nerd stuff')
+//   return { sayName, doSomethingNerdy }
+// }
 
-const jeff = Nerd('jeff')
+// const jeff = Nerd('jeff')
 
-jeff.sayName()
-jeff.doSomethingNerdy()
+// jeff.sayName()
+// jeff.doSomethingNerdy()
+
+// The Module Pattern
+const calculator = (() => {
+  const add = (a, b) => a + b
+  const sub = (a, b) => a - b
+  const mul = (a, b) => a * b
+  const div = (a, b) => a / b
+  return { add, sub, mul, div }
+})()
+console.log(calculator.add(5, 5))
+console.log(calculator.sub(5, 5))
+console.log(calculator.mul(5, 5))
+console.log(calculator.div(5, 5))
+
+//   (function() {
+//     console.log('hello world')
+//   }
+// )()
+
+// ;(() => {
+//   'use strict'
+//   console.log('hello world')
+// })()

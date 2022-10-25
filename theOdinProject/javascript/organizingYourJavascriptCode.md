@@ -46,3 +46,9 @@ Factories are simply plain old JavaScript functions that return objects for us t
 Using factories is a powerful way to organize and contain the code you’re writing
 
 Inheritance with factories
+
+The Module Pattern
+Modules are actually very similar to factory functions. The main difference is how they’re created.
+The concepts are exactly the same as the factory function. However, instead of creating a factory that we can use over and over again to create multiple objects, the module pattern wraps the factory in an 
+IIFE (Immediately Invoked Function Expression).
+<code>;(() => console.log('hello world'))()</code>
