@@ -379,23 +379,59 @@
 //   value : 2
 // })
 
-let user = {
-  get name() {
-    return this._name
-  },
+// let user = {
+//   get name() {
+//     return this._name
+//   },
 
-  set name(value) {
-    if (value.length < 4) {
-      console.log('Name is too short, need at least 4 charactes')
-      return
-    }
-    this._name = value
-  },
+//   set name(value) {
+//     if (value.length < 4) {
+//       console.log('Name is too short, need at least 4 charactes')
+//       return
+//     }
+//     this._name = value
+//   },
+// }
+
+// user.name = 'Pete'
+// console.log(user.name)
+// console.log(user._name)
+// user.name = 'fs'
+// console.log(user.name)
+// console.log(user._name)
+
+// const person = {
+//   firstName: 'Lance',
+//   lastName: 'Valle',
+//   get fullName() {
+//     return `${this.firstName} ${this.lastName}`
+//   },
+//   set fullName(value) {
+//     ;[this.firstName, this.lastName] = value.split(' ')
+//   },
+// }
+
+// //getters => access properties
+// //setters => change (mutate) them
+// console.log(`${person.firstName} ${person.lastName}`)
+// person.fullName = 'RosaMay Pano'
+// console.log(person.fullName)
+
+function User(name, birthday) {
+  this.name = name
+  this.birthday = birthday
+
+  //age is calculated from the current date and birthday
+  Object.defineProperty(this, 'age', {
+    get() {
+      let todayYear = new Date().getFullYear()
+      return todayYear - this.birthday.getFullYear()
+    },
+  })
 }
 
-user.name = 'Pete'
-console.log(user.name)
-console.log(user._name)
-user.name = 'fs'
-console.log(user.name)
-console.log(user._name)
+let John = new User('John', new Date(1992, 6, 1))
+
+console.log(John.birthday)
+console.log(John.age)
+console.log(new Date().getFullYear())

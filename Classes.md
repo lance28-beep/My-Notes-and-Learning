@@ -107,3 +107,6 @@ so, the name is stored in _name property, and the access is done via getter and 
 Technically, external code is able to access the name directly by using user.__name.
 But there is a widely known convention that properties starting with an underscore "_"
 are internal and should not be touched from outside the object
+
+## Using for compatibility
+One of the great uses of accessors is that they allow to take  control over a "regular" data property at any moment by replacing it with a getter and a setter and tweak its behavior.
