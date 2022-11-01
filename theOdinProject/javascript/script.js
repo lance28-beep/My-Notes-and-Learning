@@ -275,17 +275,17 @@
 // jeff.doSomethingNerdy()
 
 // The Module Pattern
-const calculator = (() => {
-  const add = (a, b) => a + b
-  const sub = (a, b) => a - b
-  const mul = (a, b) => a * b
-  const div = (a, b) => a / b
-  return { add, sub, mul, div }
-})()
-console.log(calculator.add(5, 5))
-console.log(calculator.sub(5, 5))
-console.log(calculator.mul(5, 5))
-console.log(calculator.div(5, 5))
+// const calculator = (() => {
+//   const add = (a, b) => a + b
+//   const sub = (a, b) => a - b
+//   const mul = (a, b) => a * b
+//   const div = (a, b) => a / b
+//   return { add, sub, mul, div }
+// })()
+// console.log(calculator.add(5, 5))
+// console.log(calculator.sub(5, 5))
+// console.log(calculator.mul(5, 5))
+// console.log(calculator.div(5, 5))
 
 //   (function() {
 //     console.log('hello world')
@@ -296,3 +296,106 @@ console.log(calculator.div(5, 5))
 //   'use strict'
 //   console.log('hello world')
 // })()
+// //factory function
+// const Player = (name, age, gender) => {
+//   return { name, age, gender }
+// }
+
+// //constructor function
+// const PlayerOne = function (name, age, gender) {
+//   this.name = name
+//   this.age = age
+//   this.gender = gender
+// }
+
+// // class function
+// class PlayerTwo {
+//   constructor(name, age, gender) {
+//     this.name = name
+//     this.age = age
+//     this.gender = gender
+//   }
+// }
+
+// const Lance = Player('lance', 27, 'male')
+// const Jess = new PlayerOne('jess', 27, 'female')
+// const May = new PlayerTwo("may",27,"female")
+// console.log(Lance.name)
+// console.log(Jess.name)
+// console.log(May.name)
+
+// Property getters and setters
+// let user = {
+//   name: 'lance',
+//   surname: 'valle',
+//   fullNames: function () {
+//     return `${this.name} ${this.surname}`
+//   },
+
+//   get fullName() {
+//     return `${this.name} ${this.surname}`
+//   },
+
+//   set fullName(value) {
+//     ;[this.name, this.surname] = value.split(' ')
+//   },
+// }
+
+// console.log(user.fullName)
+// console.log(user.fullNames())
+
+// user.fullName = 'RosaMay Pano'
+// console.log(user.fullName)
+// console.log(user.name)
+// console.log(user.surname)
+
+// for (let key in user)
+// console.log(key)
+
+// let user = {
+//   name: 'John',
+//   surname: 'Smith',
+// }
+
+// Object.defineProperty(user, 'fullName', {
+//   get() {
+//     return `${this.name} ${this.surname}`
+//   },
+
+//   set(value) {
+//     ;[this.name, this.surname] = value.split(' ')
+//   },
+// })
+
+// user.fullName = 'Lance Valle'
+// for (let i in user) console.log(i)
+
+// console.log(user.name)
+
+// Object.defineProperty({},'prop',{
+//   get(){
+//     return 1
+//   },
+//   value : 2
+// })
+
+let user = {
+  get name() {
+    return this._name
+  },
+
+  set name(value) {
+    if (value.length < 4) {
+      console.log('Name is too short, need at least 4 charactes')
+      return
+    }
+    this._name = value
+  },
+}
+
+user.name = 'Pete'
+console.log(user.name)
+console.log(user._name)
+user.name = 'fs'
+console.log(user.name)
+console.log(user._name)
