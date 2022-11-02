@@ -532,11 +532,42 @@
 
 // new User().sayhi()
 
-class User {
-  name = "John";
-  sayHi(){
-    console.log(`Hello, ${this.name}`)
+// class User {
+//   name = "John";
+//   sayHi(){
+//     console.log(`Hello, ${this.name}`)
+//   }
+// }
+
+// new User().sayHi()
+
+// class Rectangle {
+//   constructor(height, width) {
+//     this.height = height
+//     this.width = width
+//   }
+// }
+
+// const p = new Rectangle()
+// class Rectangle {}
+
+// console.log(p)
+
+let Rectangle = class {
+  constructor(height, width) {
+    this.height = height
+    this.width = width
   }
 }
 
-new User().sayHi()
+console.log(Rectangle.name)
+
+Rectangle = class Rectangle2 {
+  constructor(height, width) {
+    this.height = height
+    this.width = width
+  }
+}
+
+console.log(Rectangle.name)
+
