@@ -482,3 +482,61 @@
 
 // console.log(typeof User)
 // console.log(User)
+
+// let User = class {
+//   sayHi(){
+//     console.log("Hello")
+//   }
+// }
+
+// new User().sayHi()
+
+// function makeClass (phrase){
+//   //declare a class and return it
+//   return class{
+//     sayHi(){
+//       console.log(phrase)
+//     }
+//   }
+// }
+// //Create a new Class
+// let User = makeClass("hello")
+// new User().sayHi()
+
+// class User {
+//   constructor(name) {
+//     // invokes the setter
+//     this.name = name
+//   }
+//   get name() {
+//     return this._name
+//   }
+
+//   set name(value) {
+//     if (value.length < 4) {
+//       console.log('Name is too short. ')
+//       return
+//     }
+//     this._name = value
+//   }
+// }
+
+// let user = new User("hon")
+// console.log(user.name)
+
+// class User {
+//   ['say' + 'hi'](){
+//     console.log("Hello")
+//   }
+// }
+
+// new User().sayhi()
+
+class User {
+  name = "John";
+  sayHi(){
+    console.log(`Hello, ${this.name}`)
+  }
+}
+
+new User().sayHi()

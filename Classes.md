@@ -242,6 +242,7 @@ Still, there are important differences.
    `[[IsClassConstructor]]:true`.So its not entirely the same as creating it manually.
 
 - The language checks for that property in a variety of places. For example, unlike a regular function, it must be called with <code>new:</code>.
+
 ```
 class User {
   constructor() {}
@@ -250,10 +251,106 @@ class User {
 console.log(typeof User)
 console.log(User)
 ```
+
 Also, a string representation of a class constructor in most Javascript engines starts with the "class.."
 
+- Class methods are non-enumerable. A class definition sets <code> enumerable</code> flag to <code>false</code> for all methods in the "prototype".
+- That good, because if we for .. in over an object, we usually dont want its class methods.
+- Classes always <code>use strict</code>. All code inside the class construct is automatically in strict mode.
+  Besides, class syntax brings many other features that well explore later.
 
-* Class methods are non-enumerable. A class definition sets <code> enumerable</code> flag to <code>false</code> for all methods in the "prototype".
-* That good, because if we for .. in over an object, we usually dont want its class methods.
-* Classes always use strict. All code inside the class construct is automatically in strict mode.
-Besides, class syntax brings many other features that well explore later.
+## Class Expressiong
+
+- Just like functions, classes can be defined inside another expression, passed around, returned, assigned, etc.
+
+```
+let User = class {
+  sayHi(){
+    console.log("Hello")
+  }
+}
+
+new User().sayHi()
+```
+
+Similar to Named function Expressions, class expressions may have a name.
+if a class expression has a name, it's visible inside the class only:
+
+We can even make classes dynamically "on-deman", like this:
+
+```
+function makeClass (phrase){
+  //declare a class and return it
+  return class{
+    sayHi(){
+      console.log(phrase)
+    }
+  }
+}
+//Create a new Class
+let User = makeClass("hello")
+new User().sayHi()
+```
+
+## Getters / Setters
+
+- Just like literal objects, classes may include getters/setters, computed properties etc.
+
+```
+class User {
+  constructor(name) {
+    // invokes the setter
+    this.name = name
+  }
+  get name() {
+    return this._name
+  }
+
+  set name(value) {
+    if (value.length < 4) {
+      console.log('Name is too short. ')
+      return
+    }
+    this._name = value
+  }
+}
+
+let user = new User("hon")
+console.log(user.name)
+```
+
+## Computed names [...]
+
+- Here's an example with a computed method name using brackets [...]
+
+```
+class User {
+  ['say' + 'hi'](){
+    console.log("Hello")
+  }
+}
+
+new User().sayhi()
+```
+
+- such features are easy to remember, as they resemble that of literal objects.
+
+## Class Fields
+
+Previously, our classes only had methods
+"Class fields" is a syntax that allows to add any properties
+For instance, let's add <i>name</i> property to <code>class User</code>
+
+```
+class User {
+  name = "John";
+  sayHi(){
+    console.log(`Hello, ${this.name}`)
+  }
+}
+
+new User().sayHi()
+```
+So, we just write <i>"="</i> in the declaration, and that's it.
+The important difference of class fields is that they are set on individual objects, not 
+<code>User.prototype</code>
