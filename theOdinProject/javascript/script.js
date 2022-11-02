@@ -417,21 +417,68 @@
 // person.fullName = 'RosaMay Pano'
 // console.log(person.fullName)
 
-function User(name, birthday) {
-  this.name = name
-  this.birthday = birthday
+// function User(name, birthday) {
+//   this.name = name
+//   this.birthday = birthday
 
-  //age is calculated from the current date and birthday
-  Object.defineProperty(this, 'age', {
-    get() {
-      let todayYear = new Date().getFullYear()
-      return todayYear - this.birthday.getFullYear()
-    },
-  })
-}
+//   //age is calculated from the current date and birthday
+//   Object.defineProperty(this, 'age', {
+//     get() {
+//       let todayYear = new Date().getFullYear()
+//       return todayYear - this.birthday.getFullYear()
+//     },
+//   })
+// }
 
-let John = new User('John', new Date(1992, 6, 1))
+// let John = new User('John', new Date(1992, 6, 1))
 
-console.log(John.birthday)
-console.log(John.age)
-console.log(new Date().getFullYear())
+// console.log(John.birthday)
+// console.log(John.age)
+// console.log(new Date().getFullYear())
+
+//Class Syntax
+// class MyClass {
+//   constructor(){....}
+//   method1(){...}
+//   method2(){...}
+//   method3(){...}
+// }
+
+// class User {
+//   constructor(name) {
+//     this.name = name
+//   }
+
+//   sayHi() {
+//     return this.name
+//   }
+// }
+
+// let user = new User('Jhon')
+// console.log(user.sayHi())
+
+//rewriting class user in pure functions
+
+// // 1. Create constructor function
+// function User(name) {
+//   this.name = name
+
+// }
+// // a function prototype has "constructor" property by default,
+// // so we dont need to create it
+
+// //2. Add the method to prototype
+// User.prototype.sayHi = function(){
+//   console.log(this.name)
+// }
+
+// //Usage:
+// let user = new User("John")
+// user.sayHi()
+
+// class User {
+//   constructor() {}
+// }
+
+// console.log(typeof User)
+// console.log(User)
