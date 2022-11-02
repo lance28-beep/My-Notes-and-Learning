@@ -351,20 +351,25 @@ class User {
 
 new User().sayHi()
 ```
+
 So, we just write <i>"="</i> in the declaration, and that's it.
-The important difference of class fields is that they are set on individual objects, not 
+The important difference of class fields is that they are set on individual objects, not
 <code>User.prototype</code>
 
 ## Classes
+
 - Classes are a template for creating objects. They encapsulate data with code to work on that data.
-Classes in JS are built on prototypes but also have some syntax and semantic that are not shared with
-ES5 class-like semantics
+  Classes in JS are built on prototypes but also have some syntax and semantic that are not shared with
+  ES5 class-like semantics
 
 ## Defining Classes
+
 - Classes are in fact "special functions", and just as you can define function expression and function declaration, the class syntax has two components: class expression and class declarations.
 
 ### Class Declarations
+
 - One way to define class is using a class declaration. To declare a class, you use the "class" keyword with the name of the class ("Rectangle here").
+
 ```
 class Rectangle {
   constructor(height, width) {
@@ -373,19 +378,25 @@ class Rectangle {
   }
 }
 ```
+
 ### Hosting
+
 - An important difference between function declarations and class declarations is that while functions can be called in code that appears before they are defined, classes must be defined before they can be constructed.code like the following wil throw a referenceError.
+
 ```
 const p = new Rectangle()
 class Rectangle {}
 
 console.log(p)
 ```
+
 - this occurs because while the class is hoisted its values are not initialized.
 
 ### Class expressions
+
 - A class expression is another way to define a class.Class expressions can be named or unnamed.The name given
-to a named class expression is local to the class's body. However, it can be accessed via the name property.
+  to a named class expression is local to the class's body. However, it can be accessed via the name property.
+
 ```
 let Rectangle = class {
   constructor(height, width) {
@@ -405,5 +416,136 @@ Rectangle = class Rectangle2 {
 
 console.log(Rectangle.name)
 ```
+
 > Note: Class expressions must be declared before they can be used(they are subject to the same hoisting restrictions as described in the class declaration)
 
+## Class body and method definitions
+
+- The body of a class is the part that is in curly brackets {}. this where you define class members, such as methods or constructor.
+
+### Strict mode
+
+- the body of a class is executed in strict mode, ie. code written here is subject to stricter syntax for increased performance, some otherwise silent errors will be thrown, and certain keywords are reserved for the future version of ECMAScript.
+
+### Constructor
+
+- the constructor method is a special method for creating and initializing an object created with a class. there can only be one special method with the name "constructor" in a class. A syntaxError will be thrown if the class contains more than one occurence of a constructor method.
+- A constructor can use the super keyword to call the constructor of the super class.
+
+### Static initialization blocks
+
+- Class static initialization blocks allow flexible initialization of class static properties including the evaluation of statements during initialization, and granting access to private scope.
+
+### prototype methods.
+
+```
+class Rectangle {
+  constructor(height, width) {
+    this.height = height
+    this.width = width
+  }
+  // getter
+  get area() {
+    return this.calcArea()
+  }
+
+  //method
+  calcArea() {
+    return this.height * this.width
+  }
+}
+
+const square = new Rectangle(10, 10)
+
+console.log(square.area)
+```
+
+## Generator Methods
+
+```
+class Polygon {
+  constructor(...sides) {
+    this.sides = sides
+  }
+  // Method
+  *getSides() {
+    for (const side of this.sides) {
+      yield side
+    }
+  }
+}
+
+const pentagon = new Polygon(1, 2, 3, 4, 5)
+console.log([...pentagon.getSides()])
+```
+# Static methods and properties
+- the static keyword defines a static method or property for a class. Static members (properties and methods)
+are called without instantiating their class and cannot be called through a class instance, whereas static properties are useful for caches, fixed-configuration, or any other data you dont need to be replicated across instances.
+```
+class Point {
+  constructor(x, y) {
+    this.x = x
+    this.y = y
+  }
+  static displayName = 'Point'
+
+  static distance(a, b) {
+    const dx = a.x - b.x
+    const dy = a.y - b.y
+
+    return Math.hypot(dx, dy)
+  }
+}
+
+const p1 = new Point(5, 5)
+const p2 = new Point(10, 10)
+
+p1.displayName // undefined
+p1.distance // undefined
+p2.displayName // undefined
+p2.distance // undefined
+
+console.log(Point.displayName)
+console.log(Point.distance(p1, p2))
+```
+Static - a method or property that belongs to a class and not any one objects
+```
+class Square {
+  constructor(_width) {
+    this.width = _width
+    this.height = _width
+  }
+
+  static equals(a, b) {
+    return a.width * a.height === b.width * b.height
+  }
+}
+
+let square1 = new Square(8)
+let square2 = new Square(8)
+console.log(square1)
+console.log(square2)
+console.log(Square.equals(square1, square2))
+```
+### Binding 'this' with prototype and static methods
+- when a static or prototype method is called without a value of 'this', such as by assigning the method to a variable and then calling it,the 'this' value will be undefined inside the method. This behavior will be the same even if the 'use strict' directive isn't present,because code within the class body's syntactic boundary is always executed in strict mode.
+```
+class Animal {
+  speak() {
+    return this
+  }
+
+  static eat() {
+    return this
+  }
+}
+
+const obj = new Animal()
+console.log(obj.speak())
+const speak = obj.speak
+console.log(speak())
+
+console.log(Animal.eat())
+const eat = Animal.eat
+eat()
+```
