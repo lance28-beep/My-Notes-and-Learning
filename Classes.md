@@ -549,3 +549,10 @@ console.log(Animal.eat())
 const eat = Animal.eat
 eat()
 ```
+When a static or prototype method is called without a value for 'this',
+such as by assigning the method to a variable and then calling it, the 'this' value will be 'undefined'
+inside the method.This behavior will be the same even if the "use strict" directive isn't present, because code
+within the 'class' body's syntactic boundary is always executed in strict mode.
+
+
+## Instance properties

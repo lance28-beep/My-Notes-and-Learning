@@ -667,3 +667,82 @@
 // console.log(square1)
 // console.log(square2)
 // console.log(Square.equals(square1, square2))
+
+// class sumPurchase {
+//   maligaya = 5
+//   spanishi = 5
+
+//   constructor(qty) {
+//     this.qty = qty
+//   }
+
+//   get sum() {
+//     return this.qty * this.maligaya
+//   }
+// }
+
+// let customer1 = new sumPurchase(5)
+
+// console.log(customer1.sum)
+
+// class Animal {
+//   speak() {
+//     return this
+//   }
+//   static eat() {
+//     return this
+//   }
+// }
+
+// const obj = new Animal()
+// obj.speak()
+// const speak = obj.speak
+// speak()
+
+// Animal.eat()
+// const eat = Animal.eat
+// eat()
+
+// function Animal(){
+//   Animal.pr
+// }
+
+// class Rectangle {
+//   constructor(height, width) {
+//     this.height = height
+//     this.width = width
+//   }
+// }
+
+// class Animal {
+//   constructor(name){
+//     this.name = name;
+//   }
+
+//   speak(){
+//     console.log(`${this.name} makes a noise`)
+//   }
+// }
+
+// class Dog extends Animal {
+//   constructor(name){
+//     super(name); // call the super class constructor and pass in the name parameter.
+//   }
+
+//   speak(){
+//     console.log(`${this.name} barks.`)
+//   }
+// }
+
+// const d = new Dog('Mitzie')
+// d.speak()
+
+// const murderRobotDog = (name) => {
+//   let state = {
+//     name,
+//     speed: 100,
+//     position: 0,
+//   }
+
+//   return Object.assign({}, barker(state), driver(state), killer(state))
+// }
