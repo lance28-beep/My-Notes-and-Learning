@@ -746,3 +746,39 @@
 
 //   return Object.assign({}, barker(state), driver(state), killer(state))
 // }
+
+
+// function isGameOver(){
+//     //game over logic goes here!
+//     if(gameOver){
+//         const gameOverDiv = document.createElement('div')
+//         gameOverDiv.classList.add('game-over');
+//         gameOverDiv.textContent = `${this.winner} won the game`
+//         document.body.appendChild(gameOverDiv)
+//     }
+// }
+
+// function isGameOver(){
+//     //game over logic goes here!
+
+//     if(gameOver){
+//         DOMStuff.gameOver(this.winner)
+//     }
+// }
+
+// =================================================================================
+// # Types
+// Primitives
+// const foo = 1;
+// let bar = foo;
+
+// bar = 9;
+
+// console.log(foo,bar)
+
+// Complex:
+const foo = [1,2]
+const bar = foo;
+
+console.log(bar[0])
+console.log(foo[0],bar[0])
