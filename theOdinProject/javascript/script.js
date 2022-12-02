@@ -771,14 +771,55 @@
 // Primitives
 // const foo = 1;
 // let bar = foo;
-
 // bar = 9;
-
 // console.log(foo,bar)
 
 // Complex:
-const foo = [1,2]
-const bar = foo;
+// const foo = [1,2]
+// const bar = foo;
 
-console.log(bar[0])
-console.log(foo[0],bar[0])
+// console.log(bar[0])
+// console.log(foo[0],bar[0])
+
+// //bad 
+// var a = 1;
+// var b = 2;
+
+// //good
+// const a = 1;
+// const b = 2;
+
+
+//=========================================================================
+// const evens = [1,2,3,4,5,6,10]
+
+// let odd = evens.map(v => v + 1)
+// let nums = evens.map((v,i) => v + i)
+// let pairs = evens.map(v => ({even:v,odd:v+1}))
+
+// console.log(odd)
+// console.log(nums)
+// console.log(pairs)
+
+// Statement bodies
+// const nums = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+// const fives = []
+// nums.forEach(v => {
+//     if(v % 5 === 0)
+//     fives.push(v)
+// })
+
+// console.log(fives)
+
+// Lexical this
+const bob = {
+    _name:"Bob",
+    _friends:['lynda','justice'],
+    printFriends(){
+        this._friends.forEach(f =>
+            console.log(this._name + "knows " + f)
+            )
+    }
+}
+
+bob.printFriends()
