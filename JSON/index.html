@@ -1,22 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
-    <title>Document</title>
-</head>
-<body>
-    <header>
-
-    </header>
-    
-    <section>
-    
-    </section>
-    
-   <script src="script.js"></script>
-</body>
+<html>
+  <head>
+    <style>
+      * {
+        background-color: #333;
+      }
+      /* Navigation Bar */
+      .navbar {
+        height: 50px;
+        width: 100%;
+        background-color: #333;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        box-sizing: border-box;
+      }
+      /* Navigation Links */
+      .navbar a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+      }
+      /* Toggle Button */
+      .navbar-toggle {
+        display: none;
+        cursor: pointer;
+      }
+      /* Toggle Button Icon */
+      .navbar-toggle span {
+        height: 2px;
+        width: 26px;
+        background-color: #fff;
+        display: block;
+        margin: 5px 0;
+      }
+      /* Responsive Navigation Bar */
+      @media (max-width: 600px) {
+        .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .navbar a {
+          padding: 10px 0;
+          display: block;
+        }
+        .navbar-toggle {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+      <!-- Navigation Links -->
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <!-- Toggle Button -->
+      <div class="navbar-toggle" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>

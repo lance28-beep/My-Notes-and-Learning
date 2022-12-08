@@ -1,48 +1,63 @@
-/* || general styles */
+/* Import the Font Awesome icon font */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");
 
-html {
-    font-family: 'helvetica neue', helvetica, arial, sans-serif;
+/* The nav bar container */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 1em;
+  background-color: #333;
+  color: #fff;
+}
+
+/* The nav bar logo */
+nav .logo {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* The nav bar links */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav li {
+  margin-right: 1em;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* The toggle button for small screens */
+nav #toggle-nav {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+/* Hide the nav bar links on small screens and only show the toggle button */
+@media (max-width: 600px) {
+  nav ul {
+    display: none;
   }
-  
-  body {
-    width: 800px;
-    margin: 0 auto;
+
+  nav #toggle-nav {
+    display: block;
   }
-  
-  h1, h2 {
-    font-family: 'Faster One', cursive;
-  }
-  
-  /* header styles */
-  
-  h1 {
-    font-size: 4rem;
-    text-align: center;
-  }
-  
-  header p {
-    font-size: 1.3rem;
-    font-weight: bold;
-    text-align: center;
-  }
-  
-  /* section styles */
-  
-  section article {
-    width: 33%;
-    float: left;
-  }
-  
-  section p {
-    margin: 5px 0;
-  }
-  
-  section ul {
-    margin-top: 0;
-  }
-  
-  h2 {
-    font-size: 2.5rem;
-    letter-spacing: -5px;
-    margin-bottom: 10px;
-  }
+}
+
+/* Show the nav bar links when the "show-nav" class is added to the nav bar container */
+nav.show-nav ul {
+  display: flex;
+}
