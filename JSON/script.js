@@ -211,32 +211,76 @@
 
 // console.log(data);
 
-function fun1() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("404");
-    }, 10000);
-  });
+// function fun1() {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve("404");
+//     }, 10000);
+//   });
+// }
+
+// function fun2() {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve("hello");
+//     }, 5000);
+//   });
+// }
+
+// function onSuccess(data) {
+//   console.log("success: " + data);
+// }
+
+// function onError(errorCode) {
+//   console.log("error : " + errorCode);
+// }
+
+// function inTheEnd() {
+//   console.log("finaly we be done yo");
+// }
+
+// fun1().then(fun2).then(onSuccess).catch(onError).finally(inTheEnd);
+
+// function getPersonInfo(name) {
+//   return server.getPeople().then((people) => {
+//     return people.find((person) => {
+//       return person.name === name;
+//     });
+//   });
+// }
+
+// async function getPersonInfo(name) {
+//   const people = await server.getPeople();
+//   const person = people.find((person) => {
+//     return person.name === name;
+//   });
+//   return person;
+// }
+
+// async function getData() {
+//   const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+//   const data = await response.json();
+
+//   return data;
+// }
+
+// getData().then((data) => {
+//   console.log(data);
+// });
+
+async function getData() {
+  try {
+    const response = await fetch(
+      "https://jsonplaceholderf.typicode.com/todos/1"
+    );
+    const data = await response.json;
+
+    return data;
+  } catch (error) {
+    return error;
+  }
 }
 
-function fun2() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("hello");
-    }, 5000);
-  });
-}
-
-function onSuccess(data) {
-  console.log("success: " + data);
-}
-
-function onError(errorCode) {
-  console.log("error : " + errorCode);
-}
-
-function inTheEnd() {
-  console.log("finaly we be done yo");
-}
-
-fun1().then(fun2).then(onSuccess).catch(onError).finally(inTheEnd);
+getData().then((data) => {
+  console.log(data);
+});
